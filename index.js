@@ -4,6 +4,11 @@ import cors from "cors";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import connectDB from "./config/mongoDB.js";
+import userRoute from "./routes/userRoutes.js";
+import courseRoute from "./routes/courseRoute.js";
+import blogRoute from "./routes/blogRoutes.js";
+import orderRoute from "./routes/orderRoute.js";
+import studyRoute from "./routes/stduyRoutes.js";
 
 //init express
 const app = express();
@@ -16,6 +21,13 @@ const PORT = process.env.PORT || 4040;
 app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
+
+//routes
+app.use("/api/v1/user", userRoute);
+app.use("/api/v1/courses", courseRoute);
+app.use("/api/v1/blog", blogRoute);
+app.use("/api/v1/order", orderRoute);
+app.use("/api/v1/study", studyRoute);
 
 // homepage
 app.get("/", (req, res) => {
