@@ -36,7 +36,7 @@ export const registerRouter = async (req, res) => {
 
     res.status(200).send({
       success: true,
-      message: "user Registation successful",
+      message: "user Registation successful.Please Log in for security issues",
       user,
     });
   } catch (error) {
